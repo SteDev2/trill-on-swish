@@ -20,6 +20,10 @@ require.config({
     splitter:    "../bower_components/jquery.splitter/js/jquery.splitter-0.14.0",
     tagmanager:  "../bower_components/tagmanager/tagmanager",
 
+    //aggiunto
+    //codemirror: "../bower_components/codemirror/lib/codemirror",
+    //xml:        "../bower_components/codemirror/mode/xml/xml",
+
     "tos_cm/lib/codemirror": "../bower_components/codemirror/lib/codemirror",
 					/* CodeMirror standard extensions */
     "tos_cm/addon/edit/matchbrackets": "../bower_components/codemirror/addon/edit/matchbrackets",
@@ -58,15 +62,30 @@ require.config({
     tagmanager:
     { deps:["jquery"]
     }
+
+    ,
+    // inserito 2-5-2015
+    codemirror:
+    { export: "codemirror" },
+    /*xml:
+    { deps: ["codemirror"] , export "xml"}*/
+   
   }
 }); //require.config
 
 require(["jquery", "config", "jswish"],
 	function($, config, trill_on_swish) {
 
-$(function() {
-  $("body").trill_on_swish(config.trill_on_swish||{});
-}); //$();
+	$(function() {
+	  $("body").trill_on_swish(config.trill_on_swish||{});
+	}); //$();
 
 }); // require
 
+require(["tos_cm/lib/codemirror", "tos_cm/mode/prolog/prolog"], 
+	function(CodeMirror) {
+	  CodeMirror.fromTextArea(document.getElementById("code"), {
+	    lineNumbers: true,
+	    mode: "prolog"
+	  });
+	});

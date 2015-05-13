@@ -13,7 +13,11 @@ define([ "tos_cm/lib/codemirror",
 	 "preferences",
 
 	 //"../bower_components/codemirror/mode/javascript/javascript",
-	 "../bower_components/codemirror/mode/xml/xml",
+	 //"../bower_components/codemirror/mode/xml/xml",
+
+	 //prova inserimento
+	 "tos_cm/mode/prolog/prolog",
+
 	 //"../bower_components/codemirror/mode/clike/clike",
 	 "form",
 	 "gitty",
@@ -70,7 +74,7 @@ define([ "tos_cm/lib/codemirror",
 	  role: "source",
 	  placeholder: "Your ontology goes here (use RDF/XML format) ...",
 	  lineNumbers: true,
-	  mode: "xml"
+	  mode: "prolog"
 	}, options);
 
 
