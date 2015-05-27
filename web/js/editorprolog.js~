@@ -75,6 +75,7 @@ define([ "tos_cm/lib/codemirror",
 	  lineNumbers: true,
 	  mode: "prolog",
 	  theme: "prolog",
+
           matchBrackets: true,
           
           //comando inserito per prova

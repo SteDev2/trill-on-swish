@@ -78,6 +78,7 @@ define([ "tos_cm/lib/codemirror",
 
           matchBrackets: true,
           
+	  //
           //comando inserito per prova
           //closetag: true,
           
