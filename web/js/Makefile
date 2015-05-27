@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 JS=editorxml.js editorprolog.js navbar.js answer.js pane.js query.js runner.js trill_on_swish.js \
+=======
+JS=editor.js navbar.js answer.js pane.js query.js runner.js trill_on_swish.js \
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
    config.js jswish.js
 CM=$(shell find codemirror -name '*.js')
 JQ=jquery.jsdoc

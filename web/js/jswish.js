@@ -16,7 +16,11 @@ define([ "jquery",
 	 "pane",
 	 "navbar",
 	 "search",
+<<<<<<< HEAD
 	 "editorxml",
+=======
+	 "editor",
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	 "query",
 	 "runner",
 	 "modal",
@@ -30,9 +34,15 @@ preferences.setDefault("semantic-highlighting", false);
   var pluginName = 'trill_on_swish';
 
   var defaults = {
+<<<<<<< HEAD
     newProgramText: "<!-- Your program goes here\n\n\n\n"+
 		     "/** <examples>\n\n\n"+
 		     "*/\n-->",
+=======
+    newProgramText: "% Your program goes here\n\n\n\n"+
+		     "/** <examples>\n\n\n"+
+		     "*/\n",
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
     menu: {
       "File":
       { "New": function() {
@@ -51,7 +61,11 @@ preferences.setDefault("semantic-highlighting", false);
 	},
 	"Print group": "--",
 	"Print ...": function() {
+<<<<<<< HEAD
 	  $(".prolog-editor").xmlEditor('print');
+=======
+	  $(".prolog-editor").prologEditor('print');
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	}
       },
       "Edit":
@@ -119,8 +133,12 @@ preferences.setDefault("semantic-highlighting", false);
 
 	$("#navbar").navbar(defaults.menu);
 
+<<<<<<< HEAD
 	data.editor = $(".prolog-editor").xmlEditor();
 	//modifica 24-05
+=======
+	data.editor = $(".prolog-editor").prologEditor();
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	data.runner = $(".prolog-runners").prologRunners();
 	data.query  = $(".prolog-query").queryEditor(
           { source:   function() {
@@ -163,7 +181,11 @@ preferences.setDefault("semantic-highlighting", false);
      * @param {String} name is the name of the file in the web storage
      */
     playFile: function(file) {
+<<<<<<< HEAD
       var url = config.http.locations.trill_on_swish_web_storage + "/" + file;
+=======
+      var url = config.http.locations.web_storage + "/" + file;
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
       $.ajax({ url: url,
 	       type: "GET",
 	       data: {format: "json"},
@@ -240,7 +262,11 @@ preferences.setDefault("semantic-highlighting", false);
       var list = [];
       var src;
 
+<<<<<<< HEAD
       if ( (src=$(".prolog-editor").xmlEditor('getSource')) )
+=======
+      if ( (src=$(".prolog-editor").prologEditor('getSource')) )
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	list.push(src);
       if ( (src=$(".background.prolog.source").text()) )
 	list.push(src);
@@ -258,10 +284,17 @@ preferences.setDefault("semantic-highlighting", false);
       var text = $(".examples.prolog").text();
 
       if ( text )
+<<<<<<< HEAD
 	return $().xmlEditor('getExamples', text, false);
       else
 	return function() {
 	  return $(".prolog-editor").xmlEditor('getExamples');
+=======
+	return $().prologEditor('getExamples', text, false);
+      else
+	return function() {
+	  return $(".prolog-editor").prologEditor('getExamples');
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	};
     },
 

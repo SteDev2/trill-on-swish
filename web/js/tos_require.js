@@ -2081,3 +2081,7 @@ var requirejs, require, define;
     //Set up with config info.
     req(cfg);
 }(this));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b

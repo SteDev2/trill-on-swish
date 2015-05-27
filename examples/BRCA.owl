@@ -9,11 +9,19 @@ Conference. LNCS, vol. 5318, pp. 213–228. Springer (2008)
 
 /** <examples>
 
+<<<<<<< HEAD
 ?- prob_instanceOf(\'cancer_ra:WomanUnderLifetimeBRCRisk\',\'cancer_ra:Helen\',Prob).
 ?- instanceOf(\'cancer_ra:WomanUnderLifetimeBRCRisk\',\'cancer_ra:Helen\',ListExpl).
 
 ?- prob_sub_class(\'WomanAged3040\',\'WomanUnderLifetimeBRCRisk\',Prob).
 ?- sub_class(\'WomanAged3040\',\'WomanUnderLifetimeBRCRisk\',ListExpl).
+=======
+?- prob_instanceOf(\'http://clarkparsia.com/pronto/cancer_ra.owl#WomanUnderLifetimeBRCRisk\',\'http://clarkparsia.com/pronto/cancer_ra.owl#Helen\',Prob).
+?- instanceOf(\'http://clarkparsia.com/pronto/cancer_ra.owl#WomanUnderLifetimeBRCRisk\',\'http://clarkparsia.com/pronto/cancer_ra.owl#Helen\',ListExpl).
+
+?- prob_sub_class(\'http://clarkparsia.com/pronto/cancer_ra.owl#WomanAged3040\',\'http://clarkparsia.com/pronto/cancer_ra.owl#WomanUnderLifetimeBRCRisk\',Prob).
+?- sub_class(\'http://clarkparsia.com/pronto/cancer_ra.owl#WomanAged3040\',\'http://clarkparsia.com/pronto/cancer_ra.owl#WomanUnderLifetimeBRCRisk\',ListExpl).
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 
 */
 -->
@@ -29,7 +37,11 @@ Conference. LNCS, vol. 5318, pp. 213–228. Springer (2008)
 ]>
 
 
+<<<<<<< HEAD
 <rdf:RDF xmlns="&cancer_ra;"
+=======
+<rdf:RDF xmlns="&cancer_ra;#"
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
      xml:base="http://clarkparsia.com/pronto/cancer_ra.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:cancer_ra="http://clarkparsia.com/pronto/cancer_ra.owl#"

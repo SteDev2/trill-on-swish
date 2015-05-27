@@ -262,6 +262,7 @@
   /**
    * Recursively use hinting for the values
    */
+//funzione da modificare
   function hintValue(cm) {
     var state  = cm._templateState;
     var marker = state.selectableMarkers[state.varIndex];

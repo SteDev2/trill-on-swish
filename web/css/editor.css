@@ -1,5 +1,8 @@
 @import url("../bower_components/codemirror/lib/codemirror.css");
+<<<<<<< HEAD
 @import url("../js/codemirror/theme/prolog.css");
+=======
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 @import url("../bower_components/codemirror/addon/hint/show-hint.css");
 
 .prolog-editor, .CodeMirror { height: 100%; }

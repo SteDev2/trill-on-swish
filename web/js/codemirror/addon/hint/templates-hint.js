@@ -28,8 +28,11 @@
     Tab : selectNextVariable,
     Enter : function(cm) { selectNextVariable(cm, true) },
     Esc : uninstall,
+<<<<<<< HEAD
 
     //cercare la funzione hintValue	
+=======
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
     "Ctrl-Space": hintValue
   }
 
@@ -262,7 +265,10 @@
   /**
    * Recursively use hinting for the values
    */
+<<<<<<< HEAD
 //funzione da modificare
+=======
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
   function hintValue(cm) {
     var state  = cm._templateState;
     var marker = state.selectableMarkers[state.varIndex];

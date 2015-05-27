@@ -7,8 +7,13 @@ http://dbpedia.org/
 
 /** <examples>
 
+<<<<<<< HEAD
 ?- prob_sub_class(\'Village\',\'PopulatedPlace\',Prob).
 ?- sub_class(\'Village\',\'PopulatedPlace\',ListExpl).
+=======
+?- prob_sub_class(\'http://dbpedia.org/ontology/Village\',\'http://dbpedia.org/ontology/PopulatedPlace\',Prob).
+?- sub_class(\'http://dbpedia.org/ontology/Village\',\'http://dbpedia.org/ontology/PopulatedPlace\',ListExpl).
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 
 */
 -->

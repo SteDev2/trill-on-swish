@@ -1,5 +1,9 @@
 :- use_module(library(git)).
+<<<<<<< HEAD
 :- use_module('../lib/trill_on_swish_gitty').
+=======
+:- use_module('../lib/gitty').
+>>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 
 git_history(Dir, File, Limit, Objects) :-
 	git_shortlog(Dir, ShortLog, [git_path(File),limit(Limit)]),
