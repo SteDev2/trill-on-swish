@@ -288,11 +288,6 @@ define([ "jquery", "config", "tos_cm/lib/codemirror", "answer", "laconic" ],
 	}
 
 	elem.addClass("prolog-runner");
-<<<<<<< HEAD
-	var qspan = $.el.span({class:"query tos_cm-s-prolog"});
-=======
-	var qspan = $.el.span({class:"query cm-s-prolog"});
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	CodeMirror.runMode(query.query, "prolog", qspan);
 	elem.append($.el.div(
 	  {class:"runner-title ui-widget-header"},
