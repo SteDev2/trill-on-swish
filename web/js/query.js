@@ -9,11 +9,7 @@
  * @requires editor
  */
 
-<<<<<<< HEAD
 define([ "jquery", "laconic", "editorprolog" ],
-=======
-define([ "jquery", "laconic", "editor" ],
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
        function() {
 
 (function($) {
