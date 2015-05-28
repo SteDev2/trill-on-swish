@@ -19,11 +19,7 @@
 
 define([ "jquery" ],
        function($) {
-<<<<<<< HEAD
 var KEY = "TRILLONSWISHCONFIG";
-=======
-var KEY = "SWISHCONFIG";
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 
 /* Configuration of various server components.  We provide
    defaults for the case that these files are served from
