@@ -16,11 +16,7 @@ define([ "jquery",
 	 "pane",
 	 "navbar",
 	 "search",
-<<<<<<< HEAD
 	 "editorxml",
-=======
-	 "editor",
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	 "query",
 	 "runner",
 	 "modal",
