@@ -47,23 +47,15 @@
 /** <module> Store files on behalve of web clients
 
 The file store needs to deal  with   versioning  and  meta-data. This is
-<<<<<<< HEAD
 achieved using trill_on_swish_gitty.pl, a git-like content-base  store that lacks git's
-=======
-achieved using gitty.pl, a git-like content-base  store that lacks git's
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 notion of a _tree_. I.e., all files   are considered individual and have
 their own version.
 */
 
 :- setting(directory, atom, storage, 'The directory for storing files.').
 
-<<<<<<< HEAD
 
 :- http_handler(trill_on_swish(ptos), trill_on_swish_web_storage, [ id(trill_on_swish_web_storage), prefix ]).
-=======
-:- http_handler(trill_on_swish(p), tos_web_storage, [ id(trill_on_swish_web_storage), prefix ]).
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 
 %%	web_storage(+Request) is det.
 %
@@ -72,11 +64,7 @@ their own version.
 %	URL for the data and the plain   file name. Understands the HTTP
 %	methods =GET=, =POST=, =PUT= and =DELETE=.
 
-<<<<<<< HEAD
 trill_on_swish_web_storage(Request) :-
-=======
-tos_web_storage(Request) :-
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	option(method(Method), Request),
 	storage(Method, Request).
 
@@ -113,13 +101,8 @@ storage(post, Request) :-
 	meta_data(Request, Dir, Dict, Meta),
 	(   atom_string(Base, Dict.get(meta).get(name))
 	->  file_name_extension(Base, Type, File),
-<<<<<<< HEAD
 	    (	catch(trill_on_swish_gitty_create(Dir, File, Data, Meta, Commit),
 		      error(trill_on_swish_gitty(file_exists(File)),_),
-=======
-	    (	catch(gitty_create(Dir, File, Data, Meta, Commit),
-		      error(gitty(file_exists(File)),_),
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 		      fail)
 	    ->	true
 	    ;	Error = json{error:file_exists,
@@ -128,13 +111,8 @@ storage(post, Request) :-
 	;   (   repeat,
 	        random_filename(Base),
 		file_name_extension(Base, Type, File),
-<<<<<<< HEAD
 		catch(trill_on_swish_gitty_create(Dir, File, Data, Meta, Commit),
 		      error(trill_on_swish_gitty(file_exists(File)),_),
-=======
-		catch(gitty_create(Dir, File, Data, Meta, Commit),
-		      error(gitty(file_exists(File)),_),
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 		      fail)
 	    ->  true
 	    )
@@ -154,20 +132,12 @@ storage(put, Request) :-
 	setting(directory, Dir),
 	request_file(Request, Dir, File),
 	(   Dict.get(update) == "meta-data"
-<<<<<<< HEAD
 	->  trill_on_swish_gitty_data(Dir, File, Data, _OldMeta)
-=======
-	->  gitty_data(Dir, File, Data, _OldMeta)
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	;   option(data(Data), Dict, "")
 	),
 	meta_data(Request, Dict, Meta),
 	storage_url(File, URL),
-<<<<<<< HEAD
 	trill_on_swish_gitty_update(Dir, File, Data, Meta, Commit),
-=======
-	gitty_update(Dir, File, Data, Meta, Commit),
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	debug(storage, 'Updated: ~p', [Commit]),
 	reply_json_dict(json{url:URL,
 			     file:File,
@@ -177,31 +147,19 @@ storage(delete, Request) :-
 	authentity(Request, Meta),
 	setting(directory, Dir),
 	request_file(Request, Dir, File),
-<<<<<<< HEAD
 	trill_on_swish_gitty_update(Dir, File, "", Meta, _New),
-=======
-	gitty_update(Dir, File, "", Meta, _New),
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	reply_json_dict(true).
 
 request_file(Request, Dir, File) :-
 	option(path_info(PathInfo), Request),
 	atom_concat(/, File, PathInfo),
-<<<<<<< HEAD
 	(   trill_on_swish_gitty_file(Dir, File, _Hash)
-=======
-	(   gitty_file(Dir, File, _Hash)
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	->  true
 	;   http_404([], Request)
 	).
 
 storage_url(File, HREF) :-
-<<<<<<< HEAD
 	http_link_to_id(trill_on_swish_web_storage, path_postfix(File), HREF).
-=======
-	http_link_to_id(web_storage, path_postfix(File), HREF).
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 
 %%	meta_data(+Request, +Dict, -Meta) is det.
 %%	meta_data(+Request, Store, +Dict, -Meta) is det.
@@ -220,11 +178,7 @@ meta_data(Request, Store, Dict, Meta) :-
 	meta_data(Request, Dict, Meta1),
 	(   atom_string(Previous, Dict.get(previous)),
 	    is_sha1(Previous),
-<<<<<<< HEAD
 	    trill_on_swish_gitty_commit(Store, Previous, _PrevMeta)
-=======
-	    gitty_commit(Store, Previous, _PrevMeta)
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	->  Meta = Meta1.put(previous, Previous)
 	;   Meta = Meta1
 	).
@@ -253,11 +207,7 @@ meta_allowed(commit_message, string).
 
 %%	storage_get(+Request, +Format) is det.
 %
-<<<<<<< HEAD
 %	HTTP handler that returns information a given trill_on_swish_gitty file.
-=======
-%	HTTP handler that returns information a given gitty file.
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 %
 %	@arg Format is one of
 %
@@ -281,22 +231,14 @@ storage_get(Request, Format) :-
 	storage_get(Format, Dir, Type, FileOrHash, Request).
 
 storage_get(trill_on_swish, Dir, _, FileOrHash, Request) :-
-<<<<<<< HEAD
 	trill_on_swish_gitty_data(Dir, FileOrHash, Code, Meta),
 	trill_on_swish_reply([code(Code),file(FileOrHash),meta(Meta)], Request).
 storage_get(raw, Dir, _, FileOrHash, _Request) :-
 	trill_on_swish_gitty_data(Dir, FileOrHash, Code, Meta),
-=======
-	gitty_data(Dir, FileOrHash, Code, Meta),
-	trill_on_swish_reply([code(Code),file(FileOrHash),meta(Meta)], Request).
-storage_get(raw, Dir, _, FileOrHash, _Request) :-
-	gitty_data(Dir, FileOrHash, Code, Meta),
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	file_mime_type(Meta.name, MIME),
 	format('Content-type: ~w~n~n', [MIME]),
 	format('~s', [Code]).
 storage_get(json, Dir, _, FileOrHash, _Request) :-
-<<<<<<< HEAD
 	trill_on_swish_gitty_data(Dir, FileOrHash, Code, Meta),
 	reply_json_dict(json{data:Code, meta:Meta}).
 storage_get(history(Depth, Includes), Dir, _, File, _Request) :-
@@ -307,28 +249,12 @@ storage_get(history(Depth), Dir, _, File, _Request) :-
 	reply_json_dict(History).
 storage_get(diff(RelTo), Dir, _, File, _Request) :-
 	trill_on_swish_gitty_diff(Dir, RelTo, File, Diff),
-=======
-	gitty_data(Dir, FileOrHash, Code, Meta),
-	reply_json_dict(json{data:Code, meta:Meta}).
-storage_get(history(Depth, Includes), Dir, _, File, _Request) :-
-	gitty_history(Dir, File, History, [depth(Depth),includes(Includes)]),
-	reply_json_dict(History).
-storage_get(history(Depth), Dir, _, File, _Request) :-
-	gitty_history(Dir, File, History, [depth(Depth)]),
-	reply_json_dict(History).
-storage_get(diff(RelTo), Dir, _, File, _Request) :-
-	gitty_diff(Dir, RelTo, File, Diff),
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	reply_json_dict(Diff).
 
 request_file_or_hash(Request, Dir, FileOrHash, Type) :-
 	option(path_info(PathInfo), Request),
 	atom_concat(/, FileOrHash, PathInfo),
-<<<<<<< HEAD
 	(   trill_on_swish_gitty_file(Dir, FileOrHash, _Hash)
-=======
-	(   gitty_file(Dir, FileOrHash, _Hash)
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	->  Type = file
 	;   is_sha1(FileOrHash)
 	->  Type = hash
@@ -403,13 +329,8 @@ random_char(Char) :-
 
 trill_on_swish_search:tos_typeahead(file, Query, FileInfo) :-
 	setting(directory, Dir),
-<<<<<<< HEAD
 	trill_on_swish_gitty_file(Dir, File, Head),
 	trill_on_swish_gitty_commit(Dir, Head, Meta),
-=======
-	gitty_file(Dir, File, Head),
-	gitty_commit(Dir, Head, Meta),
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 	Meta.get(public) == true,
 	(   sub_atom(File, 0, _, _, Query) % find only public
 	->  true
