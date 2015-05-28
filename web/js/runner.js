@@ -3149,31 +3149,18 @@ timed_forall(Cond,Action) :-\n\
 ---+ See Also\n\
 The file owl2_from_rdf.plt has some examples\n\
 */\n\
-<<<<<<< HEAD
-=======
-\n\
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 load_owl(String):-\n\
   pengine_self(Self),\n\
   pengine_property(Self,module(M)),\n\
   open_chars_stream(String,S),\n\
-<<<<<<< HEAD
   process_rdf(stream(S), assert_list(M), [namespaces(NSList)]),\n\
   rdf_register_prefix('disponte','https://sites.google.com/a/unife.it/ml/disponte#',[keep(true)]),\n\
   assert(M:ns4query(NSList)),\n\
-=======
-  process_rdf(stream(S), assert_list(M), []),\n\
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
   close(S),\n\
   rdf_2_owl('ont','ont'),\n\
   owl_canonical_parse_3(['ont']),\n\
   parse_probabilistic_annotation_assertions.\n\
 \n\
-<<<<<<< HEAD
-=======
-\n\
-\n\
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 assert_list(_M,[], _):-!.\n\
 assert_list(M,[H|T], Source) :-\n\
     H=..[_|Args],\n\
@@ -3196,7 +3183,6 @@ parse_probabilistic_annotation_assertions :-\n\
   % annotation/3 axioms created already during owl_parse_annotated_axioms/1\n\
   retractall(annotation(_,'https://sites.google.com/a/unife.it/ml/disponte#probability',_)).\n\
 \n\
-<<<<<<< HEAD
 query_call(Q):-\n\
   Q =.. [P|Args],\n\
   pengine_self(Self),\n\
@@ -3243,8 +3229,6 @@ expand_ns4query(NS_URL, [_|T],Full_URL):- \n\
   expand_ns4query(NS_URL, T,Full_URL),!.\n\
 expand_ns4query(URL,_, URL).\n\
 \n\
-=======
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 parse:- \n\
   pengine_self(M),\n\
   set_prolog_flag(M:unknwon,fail),\n\
@@ -3579,12 +3563,7 @@ parse:- \n\
   function handleCreate() {
     var elem = this.pengine.options.runner;
     var data = elem.data('prologRunner');
-
-<<<<<<< HEAD
     this.pengine.ask("parse,query_call("+termNoFullStop(data.query.query)+")");
-=======
-    this.pengine.ask("parse,"+termNoFullStop(data.query.query));
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
     elem.prologRunner('setState', "running");
   }
 
