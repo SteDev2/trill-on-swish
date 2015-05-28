@@ -26,11 +26,6 @@
     invalidate any other reasons why the executable file might be covered by
     the GNU General Public License.
 */
-<<<<<<< HEAD
-
-=======
-/*prova commit*/
->>>>>>> 4549089e272f2fc68b49e3f76736e5d40e27ff1b
 :- module(trill_on_swish_app,
 	  [
 	  ]).
