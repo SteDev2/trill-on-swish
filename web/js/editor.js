@@ -74,7 +74,9 @@ define([ "tos_cm/lib/codemirror",
 	  role: "source",
 	  placeholder: "Your ontology goes here (use RDF/XML format) ...",
 	  lineNumbers: true,
-	  mode: "prolog"
+	  mode: "prolog",
+	  //inserito come prova
+	  closetag: true
 	}, options);
 
 

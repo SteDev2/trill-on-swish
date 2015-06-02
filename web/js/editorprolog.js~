@@ -78,14 +78,15 @@ define([ "tos_cm/lib/codemirror",
 
           matchBrackets: true,
           
+	  //
           //comando inserito per prova
           //closetag: true,
           
           //textHover: true,
           prologKeys: true
-//	  extraKeys: {
-//	    "Ctrl-Space": "autocomplete"	    
-//	  },
+	  extraKeys: {
+	    "Ctrl-Space": "autocomplete"	    
+	  },
 	
 	}, options);
 

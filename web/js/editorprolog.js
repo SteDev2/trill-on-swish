@@ -84,9 +84,7 @@ define([ "tos_cm/lib/codemirror",
           
           //textHover: true,
           prologKeys: true
-//	  extraKeys: {
-//	    "Ctrl-Space": "autocomplete"	    
-//	  },
+	  
 	
 	}, options);
 
