@@ -88,8 +88,11 @@ define([ "tos_cm/lib/codemirror",
           prologKeys: true,
 
 
-	//extraKeys: { "Ctrl-Space": "autocomplete",}
-	 hint: templateHint.getHints,
+	//extraKeys: { "Ctrl-Space": "autocomplete"}
+	hintOptions:{
+		hint: templateHint.getHints,
+		completeSingle: false
+	}
 	
 	
 	}, options);

@@ -78,17 +78,12 @@ define([ "tos_cm/lib/codemirror",
 	  mode: "prolog",
 	  theme: "prolog",
 
-          matchBrackets: true,
+          matchBrackets: true,	 
           
-	  //
-          //comando inserito per prova
-          //closetag: true,
-          
-          //textHover: true,
+          textHover: true,
           prologKeys: true,
 
-
-	//extraKeys: { "Ctrl-Space": "autocomplete"}
+	extraKeys: { "Ctrl-Space": "autocomplete"},
 	hintOptions:{
 		hint: templateHint.getHints,
 		completeSingle: false
