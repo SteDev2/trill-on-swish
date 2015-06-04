@@ -12,7 +12,7 @@ define([ "tos_cm/lib/codemirror",
 		 "config",
 		 "preferences",
 		 "form",
-	 
+	         "tos_cm/mode/prolog/prolog-template-hint",
 		 "trill_on_swish_gitty",
 		 "modal",
 
@@ -92,6 +92,9 @@ define([ "tos_cm/lib/codemirror",
 	
 	}, options);
 
+
+        if ( preferences.getVal("emacs-keybinding") )
+	  options.keyMap = "emacs";
 
 	if ( options.role != "query" )
 	  options.continueComments = "Enter";

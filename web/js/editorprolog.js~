@@ -12,7 +12,7 @@ define([ "tos_cm/lib/codemirror",
 		 "config",
 		 "preferences",
 		 "form",
-	 
+	         "tos_cm/mode/prolog/prolog-template-hint",
 		 "trill_on_swish_gitty",
 		 "modal",
 
@@ -78,17 +78,12 @@ define([ "tos_cm/lib/codemirror",
 	  mode: "prolog",
 	  theme: "prolog",
 
-          matchBrackets: true,
+          matchBrackets: true,	 
           
-	  //
-          //comando inserito per prova
-          //closetag: true,
-          
-          //textHover: true,
+          textHover: true,
           prologKeys: true,
 
-
-	//extraKeys: { "Ctrl-Space": "autocomplete"}
+	extraKeys: { "Ctrl-Space": "autocomplete"},
 	hintOptions:{
 		hint: templateHint.getHints,
 		completeSingle: false
@@ -97,6 +92,9 @@ define([ "tos_cm/lib/codemirror",
 	
 	}, options);
 
+
+        if ( preferences.getVal("emacs-keybinding") )
+	  options.keyMap = "emacs";
 
 	if ( options.role != "query" )
 	  options.continueComments = "Enter";

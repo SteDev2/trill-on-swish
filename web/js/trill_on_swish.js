@@ -29,6 +29,7 @@ require.config({
     "tos_cm/addon/hint/anyword-hint": "../bower_components/codemirror/addon/hint/anyword-hint",
     "tos_cm/addon/display/placeholder": "../bower_components/codemirror/addon/display/placeholder",
     "tos_cm/addon/runmode/runmode": "../bower_components/codemirror/addon/runmode/runmode",
+    "tos_cm/keymap/emacs" : "../bower_components/codemirror/keymap/emacs",
 
 					/* Our own xml mode */
     "tos_cm/mode/xml/xml": "../bower_components/codemirror/mode/xml/xml",
