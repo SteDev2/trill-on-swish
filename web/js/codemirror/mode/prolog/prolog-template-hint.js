@@ -158,7 +158,7 @@
 	     to:   state.position.to
            };
   }
-
+  //funzione con return la lista di hints
   function getHints(cm, callback, options) {
     var state = getState(cm);
   //console.log(state);
@@ -187,8 +187,8 @@
            };
   }
 
-  CodeMirror.registerHelper("hint", "prologTemplate", getHints);
-
+  //CodeMirror.registerHelper("hint", "prologTemplate", getHints);
+	CodeMirror.registerHelper("hint", "prologTemplate", ["@a","@b"]);
   return {
     getHints: getHints,
     getState: getState

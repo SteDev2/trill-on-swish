@@ -28,12 +28,14 @@ define([ "tos_cm/lib/codemirror",
 	 "tos_cm/addon/hint/show-hint",
 	 "tos_cm/addon/hint/anyword-hint",
 	 "tos_cm/addon/display/placeholder",
-	 "tos_cm/addon/runmode/runmode",	 
+	 "tos_cm/addon/runmode/runmode",	
+
+	 "tos_cm/addon/hint/templates-hint", 
 	 
          "jquery", "laconic"
          
        ],
-       function(CodeMirror, config, preferences, form, trill_on_swish_gitty) {
+       function(CodeMirror, config, preferences, form, templateHint, trill_on_swish_gitty) {
 
 (function($) {
   var pluginName = 'prologEditor';
@@ -83,8 +85,15 @@ define([ "tos_cm/lib/codemirror",
           //closetag: true,
           
           //textHover: true,
-          prologKeys: true
-	  
+          prologKeys: true,
+
+
+	//extraKeys: { "Ctrl-Space": "autocomplete"}
+	hintOptions:{
+		hint: templateHint.getHints,
+		completeSingle: false
+	}
+	
 	
 	}, options);
 

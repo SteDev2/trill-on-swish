@@ -28,8 +28,6 @@
     Tab : selectNextVariable,
     Enter : function(cm) { selectNextVariable(cm, true) },
     Esc : uninstall,
-
-    //cercare la funzione hintValue	
     "Ctrl-Space": hintValue
   }
 
@@ -262,7 +260,6 @@
   /**
    * Recursively use hinting for the values
    */
-//funzione da modificare
   function hintValue(cm) {
     var state  = cm._templateState;
     var marker = state.selectableMarkers[state.varIndex];
@@ -288,8 +285,8 @@
 	 samePos(sels[0].head,   pos.to) ) {
       cm.replaceRange("\u2630", pos.from, pos.to);
     }
-
-    CodeMirror.commands.autocomplete(cm);
+	//prova insrimento autocomple6e prolog
+    CodeMirror.commands.autocomplete(cm){CodeMirror.showHints(cm,CodeMirror.hint.prolog-template);}
   }
 
   Template.prototype.insert = function(cm, data) {

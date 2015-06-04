@@ -44,9 +44,11 @@ require.config({
     "tos_cm/mode/prolog/prolog_server": "codemirror/mode/prolog/prolog_server",
 
       
-    "tos_cm/addon/hint/templates-hint": "codemirror/addon/hint/templates-hint",
+    
     "tos_cm/addon/hover/text-hover": "codemirror/addon/hover/text-hover",
     "tos_cm/addon/hover/prolog-hover": "codemirror/addon/hover/prolog-hover",
+
+    "tos_cm/addon/hint/templates-hint": "codemirror/addon/hint/templates-hint",
     "tos_cm/addon/hint/show-context-info": "codemirror/addon/hint/show-context-info",
     "tos_cm/mode/prolog/prolog-template-hint": "codemirror/mode/prolog/prolog-template-hint"
 

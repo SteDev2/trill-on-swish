@@ -285,8 +285,8 @@
 	 samePos(sels[0].head,   pos.to) ) {
       cm.replaceRange("\u2630", pos.from, pos.to);
     }
-
-    CodeMirror.commands.autocomplete(cm);
+	//prova insrimento autocomple6e prolog
+    CodeMirror.commands.autocomplete(cm)//{CodeMirror.showHints(cm,CodeMirror.hint.prolog-template);}
   }
 
   Template.prototype.insert = function(cm, data) {
