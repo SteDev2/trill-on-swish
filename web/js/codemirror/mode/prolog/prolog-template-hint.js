@@ -159,13 +159,17 @@
            };
   }
   //funzione con return la lista di hints
-  function getHints(cm, callback, options) {
-    var state = getState(cm);
-  //console.log(state);
-    var data  = hintsFor(cm, state, options);
-    CodeMirror.attachContextInfo(data);
-    callback(data);
+  //function getHints(cm, callback, options) {
+    //var state = getState(cm);
+  ////console.log(state);
+   // var data  = hintsFor(cm, state, options);
+    //CodeMirror.attachContextInfo(data);
+    //callback(data);
+    
+    function getHints(cm, options) {
+		return scriptProva("hint", prologHint);
   }
+  var prologHint = ("provaA provaB provaC").split(" ");
   getHints.async = true;
 
   function getState(cm) {
@@ -187,8 +191,8 @@
            };
   }
 
-  //CodeMirror.registerHelper("hint", "prologTemplate", getHints);
-	CodeMirror.registerHelper("hint", "prologTemplate", ["@a","@b"]);
+  CodeMirror.registerHelper("hint", "prologTemplate", getHints);
+	//CodeMirror.registerHelper("hint", "prologTemplate", ["prova a","prova b"]);
   return {
     getHints: getHints,
     getState: getState
