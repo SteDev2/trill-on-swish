@@ -111,7 +111,7 @@ define([ "tos_cm/lib/codemirror",
 	options = $.extend({
 	  role: "source",
 	  placeholder: "Your ontology goes here (use RDF/XML format) ...",
-	  lineNumbers: true,
+	  //lineNumbers: true,
 	  mode: "xml",
 //	  theme: "xml",
 //          matchBrackets: true,

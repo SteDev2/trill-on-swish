@@ -286,7 +286,8 @@
       cm.replaceRange("\u2630", pos.from, pos.to);
     }
 	//prova insrimento autocomple6e prolog
-    CodeMirror.commands.autocomplete(cm)//{CodeMirror.showHints(cm,CodeMirror.hint.prolog-template);}
+    CodeMirror.commands.autocomplete(cm)//
+//{CodeMirror.showHints(cm,CodeMirror.hint.prolog-template);}
   }
 
   Template.prototype.insert = function(cm, data) {

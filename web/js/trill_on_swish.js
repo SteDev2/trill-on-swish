@@ -6,8 +6,8 @@
  * @version 0.2.0
  * @author Jan Wielemaker, J.Wielemaker@vu.nl
  * @requires jquery
- */
-
+ */ 
+ 
 require.config({
   urlArgs: "ts="+new Date().getTime(),	/* prevent caching during development */
   waitSeconds: 60,			/* swish-min.js is big */

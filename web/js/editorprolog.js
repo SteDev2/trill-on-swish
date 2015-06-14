@@ -12,7 +12,7 @@ define([ "tos_cm/lib/codemirror",
 		 "config",
 		 "preferences",
 		 "form",
-	         "tos_cm/mode/prolog/prolog-template-hint",
+	     "tos_cm/mode/prolog/prolog-template-hint",
 		 "trill_on_swish_gitty",
 		 "modal",
 
@@ -29,8 +29,12 @@ define([ "tos_cm/lib/codemirror",
 	 "tos_cm/addon/hint/anyword-hint",
 	 "tos_cm/addon/display/placeholder",
 	 "tos_cm/addon/runmode/runmode",	
+	 
+	 "tos_cm/addon/hover/text-hover",
+	 "tos_cm/addon/hover/prolog-hover",
 
 	 "tos_cm/addon/hint/templates-hint", 
+	 "tos_cm/addon/hint/show-context-info",
 	 
          "jquery", "laconic"
          
@@ -83,7 +87,8 @@ define([ "tos_cm/lib/codemirror",
           textHover: true,
           prologKeys: true,
 
-	extraKeys: { "Ctrl-Space": "autocomplete"},
+	extraKeys: { "Ctrl-Space": "autocomplete",
+				 "Alt-/": "autocomplete"},
 	hintOptions:{
 		hint: templateHint.getHints,
 		completeSingle: false

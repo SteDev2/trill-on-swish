@@ -73,7 +73,7 @@ define([ "tos_cm/lib/codemirror",
 	options = $.extend({
 	  role: "source",
 	  placeholder: "Your ontology goes here (use RDF/XML format) ...",
-	  lineNumbers: true,
+	  //lineNumbers: true,
 	  mode: "prolog",
 	  //inserito come prova
 	  closetag: true

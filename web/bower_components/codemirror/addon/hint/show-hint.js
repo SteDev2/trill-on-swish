@@ -125,6 +125,8 @@
       }
     },
 
+
+//funzione che richiama prologeditor
     buildOptions: function(options) {
       var editor = this.cm.options.hintOptions;
       var out = {};
