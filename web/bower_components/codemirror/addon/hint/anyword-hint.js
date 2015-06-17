@@ -13,7 +13,7 @@
 
   var WORD = /[\w$]+/, RANGE = 500;
 
-  CodeMirror.registerHelper("hint", "anyword", function(editor, options) {
+/*  CodeMirror.registerHelper("hint", "anyword", function(editor, options) {
     var word = options && options.word || WORD;
     var range = options && options.range || RANGE;
     var cur = editor.getCursor(), curLine = editor.getLine(cur.line);
@@ -37,5 +37,12 @@
       }
     }
     return {list: list, from: CodeMirror.Pos(cur.line, start), to: CodeMirror.Pos(cur.line, end)};
+  });*/
+  
+  //proova inserimento
+  CodeMirror.registerHelper("hint", "anyword", function(editor, options){
+	  
+	  return ["prova a","prova b"];
   });
+  
 });

@@ -96,11 +96,11 @@ define([ "tos_cm/lib/codemirror",
 	  elem.append(ta);
 	}
   //      CodeMirror.defaults.mode="javascript";
-	data.cm              = CodeMirror.fromTextArea(ta, options);
+	data.tos_cm              = CodeMirror.fromTextArea(ta, options);
 	console.log(CodeMirror.defaults);
-	console.log(data.cm.getMode());
-	console.log(data.cm.getOption("mode"));
-	data.cleanGeneration = data.cm.changeGeneration();
+	console.log(data.tos_cm.getMode());
+	console.log(data.tos_cm.getOption("mode"));
+	data.cleanGeneration = data.tos_cm.changeGeneration();
 	data.role            = options.role;
 
 	elem.data(pluginName, data);
@@ -122,7 +122,7 @@ define([ "tos_cm/lib/codemirror",
 
     /**
      * @example // Get the CodeMirror instance
-     * $(element).prologEditor('getOption', 'cm');
+     * $(element).prologEditor('getOption', 'tos_cm');
      * @param {String} opt Name of option to fetch.
      * @return {*}
      */
@@ -136,7 +136,7 @@ define([ "tos_cm/lib/codemirror",
      * @returns {String} current contents of the editor
      */
     getSource: function() {
-      return this.data(pluginName).cm.getValue();
+      return this.data(pluginName).tos_cm.getValue();
     },
 
     /**
@@ -144,7 +144,7 @@ define([ "tos_cm/lib/codemirror",
      * analysis
      */
      getSourceID: function() {
-       var cm = this.data(pluginName).cm;
+       var tos_cm = this.data(pluginName).tos_cm;
 
        return null;
      },
@@ -160,7 +160,7 @@ define([ "tos_cm/lib/codemirror",
       if ( typeof(src) == "string" )
 	src = {data:src};
 
-      this.data(pluginName).cm.setValue(src.data);
+      this.data(pluginName).tos_cm.setValue(src.data);
 
       if ( options.role == "source" ) {
 	if ( src.meta ) {
@@ -253,7 +253,7 @@ define([ "tos_cm/lib/codemirror",
 	  data.previous = options.meta.commit;
 	}
       } else {
-	if ( !options.cm.isClean(options.cleanGeneration) ) {
+	if ( !options.tos_cm.isClean(options.cleanGeneration) ) {
 	  data = { data: this.prologEditor('getSource'),
 		   type: "pl"
 		 };
@@ -374,7 +374,7 @@ define([ "tos_cm/lib/codemirror",
      * the content of the editor.
      */
     print: function(src) {
-      var pre = $.el.pre({class:"cm-s-neo"});
+      var pre = $.el.pre({class:"tos_cm-s-neo"});
 
       if ( !src ) src = this.prologEditor('getSource');
 
@@ -415,7 +415,7 @@ define([ "tos_cm/lib/codemirror",
       var data = this.data(pluginName);
 
       if ( pref.name == "semantic-highlighting" ) {
-	data.cm.setOption("prologHighlightServer",
+	data.tos_cm.setOption("prologHighlightServer",
 			  { enabled: pref.value });
       }
 
@@ -485,13 +485,13 @@ define([ "tos_cm/lib/codemirror",
      * content and line number.
      */
     search: function(re, options) {
-      var cm      = this.data(pluginName).cm;
-      var start   = cm.firstLine();
-      var end     = cm.lastLine();
+      var tos_cm      = this.data(pluginName).tos_cm;
+      var start   = tos_cm.firstLine();
+      var end     = tos_cm.lastLine();
       var matches = [];
 
       for(var i=start; i<=end; i++) {
-	var line = cm.getLine(i);
+	var line = tos_cm.getLine(i);
 	if ( line.search(re) >= 0 ) {
 	  matches.push({line:i+1, text:line});
 	  if ( options.max && options.max === matches.length )
@@ -515,42 +515,42 @@ define([ "tos_cm/lib/codemirror",
      */
     gotoLine: function(line, options) {
       var data = this.data(pluginName);
-      var cm   = data.cm;
+      var tos_cm   = data.tos_cm;
       var ch   = 0;
       var re;
 
-      function clearSearchMarkers(cm) {
-	if ( cm._searchMarkers !== undefined ) {
-	  for(var i=0; i<cm._searchMarkers.length; i++)
-	    cm._searchMarkers[i].clear();
-	  cm.off("cursorActivity", clearSearchMarkers);
+      function clearSearchMarkers(tos_cm) {
+	if ( tos_cm._searchMarkers !== undefined ) {
+	  for(var i=0; i<tos_cm._searchMarkers.length; i++)
+	    tos_cm._searchMarkers[i].clear();
+	  tos_cm.off("cursorActivity", clearSearchMarkers);
 	}
-	cm._searchMarkers = [];
+	tos_cm._searchMarkers = [];
       }
 
       line = line-1;
       re   = options.regex;
-      clearSearchMarkers(cm);
+      clearSearchMarkers(tos_cm);
       options = options||{};
 
       if ( re ) {
-	ch = cm.getLine(line).search(re);
+	ch = tos_cm.getLine(line).search(re);
 	if ( ch < 0 )
 	  ch = 0;
       }
 
-      cm.setCursor({line:line,ch:ch});
-      var myHeight = cm.getScrollInfo().clientHeight;
-      var coords = cm.charCoords({line: line, ch: 0}, "local");
-      cm.scrollTo(null, (coords.top + coords.bottom - myHeight) / 2);
+      tos_cm.setCursor({line:line,ch:ch});
+      var myHeight = tos_cm.getScrollInfo().clientHeight;
+      var coords = tos_cm.charCoords({line: line, ch: 0}, "local");
+      tos_cm.scrollTo(null, (coords.top + coords.bottom - myHeight) / 2);
 
       if ( re ) {
 	function markMatches(line, className) {
 	  var match;
 
-	  while( (match=re.exec(cm.getLine(line))) ) {
-	    cm._searchMarkers.push(
-	      cm.markText({line:line,ch:match.index},
+	  while( (match=re.exec(tos_cm.getLine(line))) ) {
+	    tos_cm._searchMarkers.push(
+	      tos_cm.markText({line:line,ch:match.index},
 			  {line:line,ch:match.index+match[0].length},
 			  {className:className,
 			   clearOnEnter: true,
@@ -562,7 +562,7 @@ define([ "tos_cm/lib/codemirror",
 
 	markMatches(line, "CodeMirror-search-match");
 	if ( options.showAllMatches ) {
-	  var vp = cm.getViewport();
+	  var vp = tos_cm.getViewport();
 
 	  for(var i=vp.from; i<vp.to; i++) {
 	    if ( i != line ) {
@@ -571,8 +571,8 @@ define([ "tos_cm/lib/codemirror",
 	  }
 	}
 
-	if ( cm._searchMarkers.length > 0 )
-	  cm.on("cursorActivity", clearSearchMarkers);
+	if ( tos_cm._searchMarkers.length > 0 )
+	  tos_cm.on("cursorActivity", clearSearchMarkers);
       }
     }
 

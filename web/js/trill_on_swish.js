@@ -5,8 +5,8 @@
  *
  * @version 0.2.0
  * @author Jan Wielemaker, J.Wielemaker@vu.nl
- * @requires jquery
- */ 
+ * @requires jquery    
+ */  
  
 require.config({
   urlArgs: "ts="+new Date().getTime(),	/* prevent caching during development */

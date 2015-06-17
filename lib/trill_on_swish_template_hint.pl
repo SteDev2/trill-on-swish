@@ -329,9 +329,9 @@ m_same_name_arity(H1, H2) :-
 %
 %	Create a template for the SWISH rendering modules.
 
-rendering_template([ json{displayText:  "trill_on_swish_use_rendering(+Renderer).",
+rendering_template([ json{displayText:  "prova A(+Renderer).",
 			  type:         "directive",
-			  template:     "trill_on_swish_use_rendering(${Renderer}).",
+			  template:     "prova A(${Renderer}).",
 			  varTemplates: json{'Renderer': Template}},
 		     json{displayText:  "trill_on_swish_use_rendering(+Renderer, +Options).",
 			  type:         "directive",

@@ -159,16 +159,18 @@
            };
   }
   //funzione con return la lista di hints
-  //function getHints(cm, callback, options) {
-    //var state = getState(cm);
-  ////console.log(state);
-   // var data  = hintsFor(cm, state, options);
-    //CodeMirror.attachContextInfo(data);
-    //callback(data);
+  function getHints(cm, callback, options) {
+    var state = getState(cm);
+  //console.log(state);
+    var data  = hintsFor(cm, state, options);
+    CodeMirror.attachContextInfo(data);
+    callback(data);
     
-    function getHints(cm, options) {
-		return scriptProva("hint", prologHint);
+//    function getHints(cm, options) {
+//		return scriptProva("hint", prologHint);
   }
+  //funzione che mi da problemi su firebug
+  
   var prologHint = ("provaA provaB provaC").split(" ");
   getHints.async = true;
 
@@ -191,8 +193,15 @@
            };
   }
 
-  CodeMirror.registerHelper("hint", "prologTemplate", getHints);
-	//CodeMirror.registerHelper("hint", "prologTemplate", ["prova a","prova b"]);
+  //CodeMirror.registerHelper("hint", "prologTemplate", getHints);
+	//inserito da me CodeMirror.registerHelper("hint", "prologTemplate", ["prova a","prova b"]);
+	
+	CodeMirror.registerHelper("hint", "prologTemplate", function(editor, options){
+	  
+	  return ["prova a","prova b"];
+  });
+	
+	
   return {
     getHints: getHints,
     getState: getState

@@ -125,7 +125,7 @@ function fileName(data, cm) {
   return data.file;
 }
 
-CodeMirror.registerHelper("textHover", "prolog", function(cm, data, node) {
+/*CodeMirror.registerHelper("textHover", "prolog", function(cm, data, node) {
   if ( data ) {
     var token = data.token;
     var help  = tokenHelp[token.type];
@@ -156,5 +156,9 @@ CodeMirror.registerHelper("textHover", "prolog", function(cm, data, node) {
 
   return null;
 });
-
+*/
+CodeMirror.registerHelper("textHover", "prolog", function(cm, data, node){
+	  
+	  return ["prova a","prova b"];
+  });
 });
