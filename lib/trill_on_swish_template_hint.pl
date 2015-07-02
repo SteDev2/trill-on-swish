@@ -329,14 +329,27 @@ m_same_name_arity(H1, H2) :-
 %
 %	Create a template for the SWISH rendering modules.
 
-rendering_template([ json{displayText:  "prova A(+Renderer).",
+rendering_template([ 
+			  json{displayText:  "prob_instanceOf(+Class, +Individual, +Prob).",
 			  type:         "directive",
-			  template:     "prova A(${Renderer}).",
+			  template:     "prob_instanceOf(${Class},${Individual},${Prob}).",
 			  varTemplates: json{'Renderer': Template}},
-		     json{displayText:  "trill_on_swish_use_rendering(+Renderer, +Options).",
+			  
+			  json{displayText:  "prob_sub_class(+Class1, +Class2, +Prob).",
 			  type:         "directive",
-			  template:     "trill_on_swish_use_rendering(${Renderer}).",
-			  varTemplates: json{'Renderer': Template}}
+			  template:     "prob_sub_class(${Class1},${Class2},${Prob}).",
+			  varTemplates: json{'Renderer': Template}},
+
+			  json{displayText:  "prob_unsat(+ClassExpression, +Prob).",
+			  type:         "directive",
+			  template:     "prob_unsat(${lassExpression},${Prob}).",
+			  varTemplates: json{'Renderer': Template}},
+			  
+			  json{displayText:  "prob_inconsistent_theory(+Prob).",
+			  type:         "directive",
+			  template:     "prob_inconsistent_theory(${Prob}).",
+			  varTemplates: json{'Renderer': Template}}			  
+			  
 		   ]) :-
 	findall(json{displayText: Comment,
 		     text: Name},
